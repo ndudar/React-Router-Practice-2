@@ -1,4 +1,7 @@
-# coe924bbe83c03b598d70a105
+Natalie's Notes:
+What: This project is from Scrimba's curriculum for learning more about React Router.
+Why: I wanted to dig deeper into React.
+Learnings:
 
 Warning: Vite enforces using jsx syntax inside jsx/tsx files, so it will complain about that. Solution: rename `.js` files to `.jsx` :)
 
