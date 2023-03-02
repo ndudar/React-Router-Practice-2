@@ -1,4 +1,4 @@
-Natalie's Notes:
+# Natalie's Notes:
 What: This project is from Scrimba's curriculum for learning more about React Router.
 Why: I wanted to dig deeper into React.
 Learnings:
