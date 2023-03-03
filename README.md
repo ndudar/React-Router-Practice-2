@@ -44,6 +44,18 @@ import { Outlet } from "react-router-dom"
 ```
 <sub>In this example the header is the parent, rednering for all pages, and the outlet holds the place for whatever child component needs to render according to the path</sub>
 
+- when you start nesting routes, the paths can become super clunky:
+```
+path="/host/:hostId/vans/:vanId"
+```
+- a better way to handle this is to switch to **relative** paths (anything the parent already has as a path you can delete, leaving only the rest of the path for the child)
+```
+<Route path="/host" element={<HostLayout />}>
+  <Route path="" element={<Dashboard />} />
+  <Route path="income" element={<Income />} />
+</Route>
+```
+
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
 - Mirage JS (dependency here) acts as a mock server for api requests
