@@ -61,6 +61,16 @@ path="/host/:hostId/vans/:vanId"
 ```
 - a **Layout Route** is the parent route of some nested routes that contains just the portion of the UI that will be shared. It uses an Outlet component.
 
+### NavLink:
+- works like Link, also comes from react-router-dom
+- in addition to propery **"to"** for where to navigate, it can also take a **className** (which can take a function)
+  - react router will pass this function an object with an "isActive" property - Boolean if that route is the active route
+  ```
+  <NavLink to="/about" className={({isActive}) => isActive ? "my-link" : null}>
+  </NavLink>
+  ```
+  - can also take inline style prop (can also use isActive to enable a specific inline style for that)
+
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
 - Mirage JS (dependency here) acts as a mock server for api requests
