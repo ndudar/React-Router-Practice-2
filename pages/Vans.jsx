@@ -6,6 +6,7 @@ export default function Vans() {
   const [vans, setVans] = React.useState([]);
 
   //grabbing the vans data from the mirage "server"
+  //opportunity to optimize: save vans in cache so don't have to refresh every time page loads
   React.useEffect(() => {
     fetch("/api/vans")
       .then((res) => res.json())
