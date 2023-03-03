@@ -55,6 +55,10 @@ path="/host/:hostId/vans/:vanId"
   <Route path="income" element={<Income />} />
 </Route>
 ```
+- if you want a child route to have the same path of the parent, you can use use the **index property**
+```
+<Route index element={<Dashboard />} />
+```
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
