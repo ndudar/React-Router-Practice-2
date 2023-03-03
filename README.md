@@ -15,6 +15,8 @@ I'm completing this project to practice React skills, specifically React Router.
 
 ### Route:
 - path specifies URL and element names component to render
+- any children of Route components must also be Route components
+- the parent route will render, then any child route will render according to the path we are on!
 
 ### Link:
 - allows you to load different components with **no refresh**
@@ -33,6 +35,14 @@ I'm completing this project to practice React skills, specifically React Router.
 - Handy when you want to keep some elements (like a sidebar) and switch out others
 - An essential psrt of SPAs
 - DRY because you're not repeating components in code
+- Outlet is a component from react-router-dom that allows you to show where on your page you want child components to render
+```
+import { Outlet } from "react-router-dom"
+
+<Header />
+<Outlet />
+```
+<sub>In this example the header is the parent, rednering for all pages, and the outlet holds the place for whatever child component needs to render according to the path</sub>
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
