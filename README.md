@@ -30,6 +30,9 @@ I'm completing this project to practice React skills, specifically React Router.
 ```
 
 ### Nested Routes:
+- Handy when you want to keep some elements (like a sidebar) and switch out others
+- An essential psrt of SPAs
+- DRY because you're not repeating components in code
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
