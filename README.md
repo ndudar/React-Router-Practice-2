@@ -59,6 +59,7 @@ path="/host/:hostId/vans/:vanId"
 ```
 <Route index element={<Dashboard />} />
 ```
+- a **Layout Route** is the parent route of some nested routes that contains just the portion of the UI that will be shared. It uses an Outlet component.
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
