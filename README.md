@@ -70,6 +70,7 @@ path="/host/:hostId/vans/:vanId"
   </NavLink>
   ```
   - can also take inline style prop (can also use isActive to enable a specific inline style for that)
+  - there is also an isLoading prop you could use
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
