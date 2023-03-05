@@ -69,8 +69,9 @@ path="/host/:hostId/vans/:vanId"
   <NavLink to="/about" className={({isActive}) => isActive ? "my-link" : null}>
   </NavLink>
   ```
-  - can also take inline style prop (can also use isActive to enable a specific inline style for that)
-  - there is also an isLoading prop you could use
+  - can also take inline style prop (can also use **isActive** to enable a specific inline style for that)
+  - there is also an **isLoading** prop you could use
+  - another interesting property to keep in mind is **end** which signifies this is the end of the URL match. In other words, if I only wanted a style to match */host* and not */host/income*, I could use **end** as a property on the NavLink for */host* and it would only match that specific URL
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
