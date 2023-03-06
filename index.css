@@ -422,3 +422,12 @@ i[class*='van-type-'] {
     text-decoration: underline;
     font-weight: 700;
 }
+
+.host-van-detail-info > h4 {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 21px;
+}
+.host-van-detail-info > h4 > span {
+    font-weight: 500;
+}
