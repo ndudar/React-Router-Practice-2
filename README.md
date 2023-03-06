@@ -84,6 +84,18 @@ path="/host/:hostId/vans/:vanId"
   >Back to vans</Link>
   ```
 
+  ### useOutletContext:
+  - when needing to pass your outlet the **context**, you can then invoke the **useOutletContext** function in the child component, thus passing in any pertinent info
+  [Documentation Here](https://reactrouter.com/en/main/hooks/use-outlet-context)
+  ```
+  <Outlet content={{ van }}>
+  ```
+  ```
+  import { useOutletContext } from "react-router-dom"
+
+  const { van } = useOutletContext()
+  ```
+
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
 - Mirage JS (dependency here) acts as a mock server for api requests
