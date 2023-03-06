@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 export default function HostVanDetail() {
   //grab params from URL
@@ -13,22 +13,33 @@ export default function HostVanDetail() {
     fetch(`/api/host/vans/${params.id}`)
       .then((res) => res.json())
       .then((data) => setVan(data.vans));
-  }, [params.id]);
+  }, []);
 
-  return (
-    <div className="van-detail-container">
-      {van ? (
-        <div className="van-detail">
-          <img src={van.imageUrl} />
-          <i className={`van-type ${van.type} selected`}>{van.type}</i>
-          <h2>{van.name}</h2>
-          <p className="van-price">
-            <span>${van.price}</span>/day
-          </p>
+  if (!van) {
+    return <h1>Loading...</h1>
+}
+
+return (
+    <section>
+        <Link
+            to="../vans"
+            className="back-button"
+        >&larr; <span>Back to all vans</span></Link>
+
+        <div className="host-van-detail-layout-container">
+            <div className="host-van-detail">
+                <img src={van.imageUrl} />
+                <div className="host-van-detail-info-text">
+                    <i
+                        className={`van-type van-type-${van.type}`}
+                    >
+                        {van.type}
+                    </i>
+                    <h3>{van.name}</h3>
+                    <h4>${van.price}/day</h4>
+                </div>
+            </div>
         </div>
-      ) : (
-        <h2>Loading...</h2>
-      )}
-    </div>
-  );
+    </section>
+)
 }
