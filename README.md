@@ -76,6 +76,13 @@ path="/host/:hostId/vans/:vanId"
   ```
   <Link to=".">Dashboard</Link>
   ```
+  - when using this ^, if you want to go back in the directory according the **path** and not the **nested Routes**, you can say so with the **relative** property:
+  ```
+  <Link
+    to=".."
+    relative="path"
+  >Back to vans</Link>
+  ```
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
