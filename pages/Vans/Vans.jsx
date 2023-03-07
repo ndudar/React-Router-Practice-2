@@ -1,9 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 export default function Vans() {
+  const [searchParams, setSearchParams] = useSearchParams()
   //state
   const [vans, setVans] = React.useState([]);
+
+  const typeFilter = searchParams.get("type")
 
   //grabbing the vans data from the mirage "server"
   //opportunity to optimize: save vans in cache so don't have to refresh every time page loads
