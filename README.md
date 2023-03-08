@@ -108,6 +108,11 @@ path="/host/:hostId/vans/:vanId"
   <Link to="?type=rugged">Rugged</Link>
   ```
   - this is useful when creating filter options
+  - if you want a "clear" option to clear out search params, you can make a path in two ways:
+  ```
+  <Link to="">Clear</Link>
+  <Link to=".">Clear</Link>
+  ```
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
