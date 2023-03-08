@@ -20,6 +20,7 @@ I'm completing this project to practice React skills, specifically React Router.
 
 ### Link:
 - allows you to load different components with **no refresh**
+- can also use Link to put search params into the URL
 
 ### Params:
 - React built in Hook useParams() pulls the params as variables from the URL
@@ -95,6 +96,18 @@ path="/host/:hostId/vans/:vanId"
 
   const { van } = useOutletContext()
   ```
+
+  ### useSearchParams:
+  - import this from "react-router-dom" if you want to grab search params from the URL
+  ```
+  const [searchParams, setSearchParams] = useSearchParams()
+  const typeFilter = searchParams.get("type")
+  ```
+  - in order to get the URL to show the search param you want, you can use Link:
+  ```
+  <Link to="?type=rugged">Rugged</Link>
+  ```
+  - this is useful when creating filter options
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
