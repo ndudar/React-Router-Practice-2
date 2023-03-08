@@ -2,11 +2,11 @@ import React from "react";
 import { Link, useSearchParams } from "react-router-dom";
 
 export default function Vans() {
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [searchParams, setSearchParams] = useSearchParams();
   //state
   const [vans, setVans] = React.useState([]);
 
-  const typeFilter = searchParams.get("type")
+  const typeFilter = searchParams.get("type");
 
   //grabbing the vans data from the mirage "server"
   //opportunity to optimize: save vans in cache so don't have to refresh every time page loads
@@ -18,8 +18,8 @@ export default function Vans() {
 
   //filtering the vans array if we have a typeFilter
   const displayedVans = typeFilter
-    ? vans.filter(van => van.type === typeFilter)
-    : vans
+    ? vans.filter((van) => van.type === typeFilter)
+    : vans;
 
   const vanElements = displayedVans.map((van) => (
     <div key={van.id} className="van-tile">
@@ -41,10 +41,30 @@ export default function Vans() {
     <div className="van-list-container">
       <h1>Explore our van options</h1>
       <div className="van-list-filter-buttons">
-        <Link className="van-type simple" to="?type=simple">Simple</Link>
-        <Link className="van-type luxury" to="?type=luxury">Luxury</Link>
-        <Link className="van-type rugged" to="?type=rugged">Rugged</Link>
-        <Link className="van-type clear-filters" to=".">Clear</Link>
+        <button
+          className="van-type simple"
+          onClick={() => setSearchParams({ type: "simple" })}
+        >
+          Simple
+        </button>
+        <button
+          className="van-type luxury"
+          onClick={() => setSearchParams({ type: "luxury" })}
+        >
+          Luxury
+        </button>
+        <button
+          className="van-type rugged"
+          onClick={() => setSearchParams({ type: "rugged" })}
+        >
+          Rugged
+        </button>
+        <button
+          className="van-type clear-filters"
+          onClick={() => setSearchParams({})}
+        >
+          Clear Filter
+        </button>
       </div>
       <div className="van-list">{vanElements}</div>
     </div>
