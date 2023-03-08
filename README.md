@@ -122,7 +122,30 @@ path="/host/:hostId/vans/:vanId"
     ```
     <button onClick={() => setSearchParams({type: "rugged"})}>Rugged</button>
     ```
-    3. and more - probably a template could work, too
+    3. and more - probably a template literal could work, too
+
+  - a word to the wise: the above methods will completely clear out other searchParams, so if you are planning on having more than one param, there is more to this. This brings us to the next tactic:
+
+    4. make a function to generate the search params, call this function in your Link passing in the key and value desired. In order to do this, you will need to use URLSearchParams from the URL API
+    [URLSearchParams Documentation Here](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
+    ```
+    function genNewSearchParamString(key, value) {
+
+      //we can use the previous searchParams as an argument
+      const sp = new URLSearchParams(searchParams)
+
+      //if we are clearing this out, delete the key from the URL
+      if (value === null) sp.delete(key)
+      
+      //otherwise set the key value pair in the search params
+      else sp.set(key, value)
+
+      return `?${sp.toString()}`
+    }
+
+    <Link to={genNewSearchParamString("type", "rugged")}>Rugged</Link>
+    <Link to={genNewSearchParamString("type", null)}>Clear</Link>
+    ```
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
