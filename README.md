@@ -114,7 +114,7 @@ path="/host/:hostId/vans/:vanId"
   <Link to=".">Clear</Link>
   ```
   - if Link feels too hard-coded, you can do this with setSearchParams in a few ways:
-    1. put the string into setSearchParams (no question mark needed, it's smart enough to figure this out. If you want to put the ?, that's fine, too. Clear would just be an empty string.)
+    1. put the string into setSearchParams (no question mark needed, it's smart enough to figure this out. If you want to put the ?, that's fine, too. Clear would just be an empty string - the "." is specific to React Router and would not work here)
     ```
     <button onClick={() => setSearchParams("type=rugged)}>Rugged</button>
     ```
