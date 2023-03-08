@@ -113,6 +113,16 @@ path="/host/:hostId/vans/:vanId"
   <Link to="">Clear</Link>
   <Link to=".">Clear</Link>
   ```
+  - if Link feels too hard-coded, you can do this with setSearchParams in a few ways:
+    1. put the string into setSearchParams (no question mark needed, it's smart enough to figure this out. If you want to put the ?, that's fine, too. Clear would just be an empty string.)
+    ```
+    <button onClick={() => setSearchParams("type=rugged)}>Rugged</button>
+    ```
+    2. record initialization / object initialization: use key value pairs (a clear would just be an empty object)
+    ```
+    <button onClick={() => setSearchParams({type: "rugged"})}>Rugged</button>
+    ```
+    3. and more - probably a template could work, too
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
