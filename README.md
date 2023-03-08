@@ -126,7 +126,7 @@ path="/host/:hostId/vans/:vanId"
 
   - a word to the wise: the above methods will completely clear out other searchParams, so if you are planning on having more than one param, there is more to this. This brings us to the next tactic:
 
-    4. make a function to generate the search params, call this function in your Link passing in the key and value desired. In order to do this, you will need to use URLSearchParams from the URL API
+    4. make a function to generate the search params, call this function in your Link passing in the key and value desired. In order to do this, you will need to use URLSearchParams from the URL API. This will keep any other searchParams in tact.
     [URLSearchParams Documentation Here](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams)
     ```
     function genNewSearchParamString(key, value) {
@@ -136,7 +136,7 @@ path="/host/:hostId/vans/:vanId"
 
       //if we are clearing this out, delete the key from the URL
       if (value === null) sp.delete(key)
-      
+
       //otherwise set the key value pair in the search params
       else sp.set(key, value)
 
@@ -146,6 +146,22 @@ path="/host/:hostId/vans/:vanId"
     <Link to={genNewSearchParamString("type", "rugged")}>Rugged</Link>
     <Link to={genNewSearchParamString("type", null)}>Clear</Link>
     ```
+      - side note: a function like genNewSearchParamString would be great to lift out of the Component and put in a utils folder, as you might need to use its functionality in many places in your app
+      - here's another example of the above but with buttons and setSearchParams:
+      ```
+      function handleFilterChange(key, value) {
+        setSearchParams(prevParams => {
+          if (value === null) prevParams.delete(key)
+          else prevParams.set(key, value)
+          return prevParams
+        })
+      }
+
+      <button onClick={() => handleFilterChange("type", "rugged")}>Rugged</button>
+      <button onClick={() => handleFilterChange("type", null)}>Clear</button>
+      ```
+      - another side note here: yes, this is modifying the previous searchParams and yes, that is ok. ALSO, if you have two keys with the same name and hit clear, it will clear out both. There's a way to work around this, but we're not learning it here today.
+
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
