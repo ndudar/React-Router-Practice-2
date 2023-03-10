@@ -1,9 +1,13 @@
 import React from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 
 export default function VanDetail() {
   //grab params from url
   const params = useParams();
+
+  //object with pathname, search query, hash, state, and key
+  //this state is in the browser's own capability to hold state, this is not React state
+  const location = useLocation()
 
   //state
   const [van, setVan] = React.useState(null);

@@ -162,6 +162,21 @@ path="/host/:hostId/vans/:vanId"
       ```
       - another side note here: yes, this is modifying the previous searchParams and yes, that is ok. ALSO, if you have two keys with the same name and hit clear, it will clear out both. There's a way to work around this, but we're not learning it here today.
 
+   - What if you want to pass the search params, or hold on to them? (One use case for this is a back button - when the user clicks back, you want the same search params to repopulate as opposed to them having to refilter). You can do this using the state property in Link:
+   *This state is not React state! It is part of the browser's own capability.*
+   ```
+   <Link to={van.id} state={{  search: searchParams.toString() }}>
+   ```
+   ^ this passes the state to the next component
+   ...then we want to use the **useLocation** hook in the component we are passing state to like so:
+   ```
+   //remember to import the hook
+   import { useLocation } from "react-router-dom"
+
+   //invoke it
+   const location = useLocation()
+   ```
+
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
