@@ -184,6 +184,12 @@ path="/host/:hostId/vans/:vanId"
    ```
    [useLocation Documentation Here](https://reactrouter.com/en/main/hooks/use-location)
 
+### Catch-All Path:
+- One way to handle any paths that deviate from your prescripted paths is to use a catchall with an asterisk:
+```
+<Route path="*" element={<h1>Page not found!</h1>} />
+```
+this should be nested in your routes, React will know where to nest it according to your other components 
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
