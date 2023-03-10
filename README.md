@@ -182,6 +182,7 @@ path="/host/:hostId/vans/:vanId"
    //then use this in the Link to path for clicking back
    <Link to={`..${search}`} relative="path">Back to all vans</Link>
    ```
+   [useLocation Documentation Here](https://reactrouter.com/en/main/hooks/use-location)
 
 
 #### Other Findings:
