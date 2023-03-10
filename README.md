@@ -209,6 +209,26 @@ function App() {
 }
 ```
 <sub>All of the routes (including nested routes) are arguments in the createRoutesFromElements function, which under the hood will make them an object (with nested objects if there are child routes).</sub>
+- when you use the loader property, you are indicating to React Router that you want it to delay the rendering of that component until it has the data
+- now we can grab the data we want from the API without needing a useEffect, a loading state, or other data states.
+
+```
+import { getVans } from "../../api"
+export function loader() {
+  return getVans()
+}
+
+export default function Vans() {
+  const vans = useLoaderData()
+}
+```
+<sub>The above code block is in Vans.jsx. You'll need to import useLoaderData. In index.jsx, do the following:</sub>
+
+```
+import Vans, { loader as vansLoader } from "./pages/Vans/Vans"
+
+<Route path="vans" element={<Vans />} loader={vansLoader} />
+```
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub

@@ -1,39 +1,21 @@
 import React from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams, useLoaderData } from "react-router-dom";
 //import the api
 import { getVans } from "../../api";
 
 export function loader() {
-  return "Vans data goes here"
+  return getVans()
 }
 
 export default function Vans() {
   const [searchParams, setSearchParams] = useSearchParams();
-  //state
-  const [vans, setVans] = React.useState([]);
-  //loading state
-  const [loading, setLoading] = React.useState(false);
   //error state
   const [error, setError] = React.useState(null);
+  //getting loader data (no longer need to set state for vans)
+  const vans = useLoaderData()
 
   const typeFilter = searchParams.get("type");
 
-  //grabbing the vans data from the mirage "server"
-  //opportunity to optimize: save vans in cache so don't have to refresh every time page loads
-  React.useEffect(() => {
-    async function loadVans() {
-      setLoading(true)
-      try {
-        const data = await getVans()
-        setVans(data)
-      } catch(err) {
-        setError(err)
-      } finally {
-        setLoading(false)
-      }
-    }
-    loadVans()
-  }, []);
 
   //filtering the vans array if we have a typeFilter
   const displayedVans = typeFilter
@@ -58,10 +40,6 @@ export default function Vans() {
       </Link>
     </div>
   ));
-
-  if (loading) {
-    return <h1>Loading...</h1>
-  }
 
   if (error) {
     return <h1>There was an error: {error.message}</h1>
