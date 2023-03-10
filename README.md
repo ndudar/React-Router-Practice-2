@@ -189,11 +189,12 @@ path="/host/:hostId/vans/:vanId"
 ```
 <Route path="*" element={<h1>Page not found!</h1>} />
 ```
-this should be nested in your routes, React will know where to nest it according to your other components 
+this should be nested in your routes, React will know where to nest it according to your other components
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
 - Mirage JS (dependency here) acts as a mock server for api requests
+- you can set state for loading and do an early return of a div for loading for smoother user interface 
 
 
 ##### This Project is from Scrimba
