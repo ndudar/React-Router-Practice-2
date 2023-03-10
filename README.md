@@ -214,7 +214,7 @@ function App() {
 - Netlify is a good free and easy option for deplyment from GitHub
 - Mirage JS (dependency here) acts as a mock server for api requests
 - you can set state for loading and do an early return of a div for loading for smoother user interface
-- Remix is something work checking out
+- Remix is something worth checking out (tied to loaders?)
 
 
 ##### This Project is from Scrimba
