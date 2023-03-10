@@ -191,10 +191,30 @@ path="/host/:hostId/vans/:vanId"
 ```
 this should be nested in your routes, React will know where to nest it according to your other components
 
+### Loaders:
+- ok here is where things are starting to get a little tricky. So far, we've been living in the world of BrowserRouter, but this does not support React Router's new data APIs. [Documentation here for more context.](https://reactrouter.com/en/main/routers/picking-a-router) In order to start making use of these data APIs, we are going to use **createBrowserRouter**. This will also require us to use **createRoutesFromElements** and **RouterProvider**.
+- first, import the three bolded functions / components named above from react-router-dom
+- then create the router object:
+```
+const router = createBrowserRouter(createRoutesFromElements(
+  <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+  </Route>
+))
+
+function App() {
+  return (
+    <RouterProvider router={router}> />
+  )
+}
+```
+<sub>All of the routes (including nested routes) are arguments in the createRoutesFromElements function, which under the hood will make them an object (with nested objects if there are child routes).</sub>
+
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
 - Mirage JS (dependency here) acts as a mock server for api requests
-- you can set state for loading and do an early return of a div for loading for smoother user interface 
+- you can set state for loading and do an early return of a div for loading for smoother user interface
+- Remix is something work checking out
 
 
 ##### This Project is from Scrimba
