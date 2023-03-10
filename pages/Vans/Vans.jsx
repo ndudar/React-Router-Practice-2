@@ -1,19 +1,27 @@
 import React from "react";
 import { Link, useSearchParams } from "react-router-dom";
+//import the api
+import { getVans } from "../../api";
 
 export default function Vans() {
   const [searchParams, setSearchParams] = useSearchParams();
   //state
   const [vans, setVans] = React.useState([]);
+  //loading state
+  const [loading, setLoading] = React.useState(false);
 
   const typeFilter = searchParams.get("type");
 
   //grabbing the vans data from the mirage "server"
   //opportunity to optimize: save vans in cache so don't have to refresh every time page loads
   React.useEffect(() => {
-    fetch("/api/vans")
-      .then((res) => res.json())
-      .then((data) => setVans(data.vans));
+    async function loadVans() {
+      setLoading(true)
+      const data = await getVans()
+      setVans(data)
+      setLoading(false)
+    }
+    loadVans()
   }, []);
 
   //filtering the vans array if we have a typeFilter
@@ -39,6 +47,10 @@ export default function Vans() {
       </Link>
     </div>
   ));
+
+  if (loading) {
+    return <h1>Loading...</h1>
+  }
 
   return (
     <div className="van-list-container">
