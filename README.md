@@ -230,6 +230,9 @@ import Vans, { loader as vansLoader } from "./pages/Vans/Vans"
 <Route path="vans" element={<Vans />} loader={vansLoader} />
 ```
 
+### errorElement Prop:
+- in your Route, you can provide an **errorElement** prop (just like you provide an **element** prop) for error handling with a better user experience 
+
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
 - Mirage JS (dependency here) acts as a mock server for api requests
