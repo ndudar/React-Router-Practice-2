@@ -231,7 +231,8 @@ import Vans, { loader as vansLoader } from "./pages/Vans/Vans"
 ```
 
 ### errorElement Prop:
-- in your Route, you can provide an **errorElement** prop (just like you provide an **element** prop) for error handling with a better user experience 
+- in your Route, you can provide an **errorElement** prop (just like you provide an **element** prop) for error handling with a better user experience
+- this will show as a component anytime that component has an error
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
