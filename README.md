@@ -249,6 +249,14 @@ return (
 )
 ```
 
+### Authentication:
+- you can use React Router to authenticate by wrapping other routes in a layout. This layout forces the authentication process first, before it will render any Outlet of the protected components.
+```
+<Route element={<AuthRequired />}>
+  <Route path="protected" element={<SecretStuff />} />
+</Route>
+```
+
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
