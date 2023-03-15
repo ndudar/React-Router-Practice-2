@@ -233,6 +233,22 @@ import Vans, { loader as vansLoader } from "./pages/Vans/Vans"
 ### errorElement Prop:
 - in your Route, you can provide an **errorElement** prop (just like you provide an **element** prop) for error handling with a better user experience
 - this will show as a component anytime that component has an error
+- you can put this further up your routes, like on the main route, and any route that encounters an error will bubble up to the nearest errorElement
+```
+<Route path="/" element={<Layout />} errorElement={<Error />}>
+```
+
+### useRouteError:
+- import this from react-router-dom in Error component
+- allows you to access the error defined in api.js
+```
+const error = useRouteError()
+
+return (
+  <h1>Error: {error.message}</h1>
+)
+```
+
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
