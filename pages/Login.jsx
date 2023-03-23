@@ -20,7 +20,7 @@ export default function Login() {
       .catch((err) => setError(err))
       .then((data) => {
         localStorage.setItem("loggedin", true);
-        navigate("/host");
+        navigate("/host", { replace: true });
       })
       .finally(() => {
         setStatus("idle");
