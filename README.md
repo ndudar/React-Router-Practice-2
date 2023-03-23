@@ -272,7 +272,10 @@ navigate("/logout)
 ```
 
 ### useLocation:
-
+- imported from "react-router-dom"
+- when invoked, returns an object with information (most notably the **pathname**) about where the user is navigating
+- we can use this to redirect users back there after they have logged in, rather than hardcoding a location
+- you'll need to pass the location via state into the Navigate component
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
