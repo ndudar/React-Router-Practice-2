@@ -18,7 +18,7 @@ export default function Login() {
     setError(null);
     loginUser(loginFormData)
       .catch((err) => setError(err))
-      .then((data) => console.log(data))
+      .then((data) => navigate("/host"))
       .finally(() => {
         setStatus("idle");
       });
