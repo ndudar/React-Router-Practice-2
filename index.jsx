@@ -41,7 +41,7 @@ const router = createBrowserRouter(
         loader={vansLoader}
       />
       <Route path="vans/:id" element={<VanDetail />} />
-      <Route>
+      <Route element={<AuthRequired />}>
         <Route path="host" element={<HostLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="income" element={<Income />} />
