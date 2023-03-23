@@ -277,6 +277,7 @@ navigate("/logout)
 - we can use this to redirect users back there after they have logged in, rather than hardcoding a location
 - you'll need to pass the location via state into the Navigate component
 - this is also nice if someone is sharing a URL that is a protected route, that person doesn't want to breadcrumb their way back to it if they login
+[Documentation here.](https://reactrouter.com/en/main/hooks/use-location)
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
