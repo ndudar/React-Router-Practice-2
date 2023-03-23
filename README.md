@@ -257,6 +257,8 @@ return (
 </Route>
 ```
 
+### Navigate:
+- imported from react-router-dom, allows you to navigate the user to different pages conditionally
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
