@@ -24,6 +24,7 @@ import HostVanPhotos from "./pages/Host/HostVanPhotos";
 import NotFound from "./pages/NotFound";
 import Error from "./components/Error";
 import Login from "./pages/Login";
+import AuthRequired from "./components/AuthRequired";
 
 import "./server";
 
