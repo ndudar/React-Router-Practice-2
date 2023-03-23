@@ -18,7 +18,10 @@ export default function Login() {
     setError(null);
     loginUser(loginFormData)
       .catch((err) => setError(err))
-      .then((data) => navigate("/host"))
+      .then((data) => {
+        localStorage.setItem("loggedin", true);
+        navigate("/host");
+      })
       .finally(() => {
         setStatus("idle");
       });
