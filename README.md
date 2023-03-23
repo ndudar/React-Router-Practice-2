@@ -276,6 +276,7 @@ navigate("/logout)
 - Mirage JS (dependency here) acts as a mock server for api requests
 - you can set state for loading and do an early return of a div for loading for smoother user interface
 - Remix is something worth checking out (tied to loaders?)
+- as a second param to navigate(), if you put { replace: true }, it will take that previous page out of the history stack (say it's a login page for example), so if the user hits the back button they won't go back to the login page, but whatever page they were on before that
 
 
 ##### This Project is from Scrimba
