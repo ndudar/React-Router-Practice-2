@@ -271,6 +271,9 @@ const navigate = useNavigate();
 navigate("/logout)
 ```
 
+### useLocation:
+
+
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
 - Mirage JS (dependency here) acts as a mock server for api requests
