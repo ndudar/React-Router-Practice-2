@@ -260,6 +260,17 @@ return (
 ### Navigate:
 - imported from react-router-dom, allows you to navigate the user to different pages conditionally
 
+### useNavigate:
+- works very similarly to Navigate, but this is a hook that returns a function
+[Documentation here for more info](https://reactrouter.com/en/main/hooks/use-navigate)
+```
+import { useNavigate } from "react-router-dom"
+
+const navigate = useNavigate();
+
+navigate("/logout)
+```
+
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
 - Mirage JS (dependency here) acts as a mock server for api requests
