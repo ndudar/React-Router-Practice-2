@@ -279,6 +279,9 @@ navigate("/logout)
 - this is also nice if someone is sharing a URL that is a protected route, that person doesn't want to breadcrumb their way back to it if they login
 [Documentation here.](https://reactrouter.com/en/main/hooks/use-location)
 
+### Form:
+- the React form component allows you to have much of the same functionality of html forms but without needing to code a handleChange or handleSubmit to manage the state
+
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
 - Mirage JS (dependency here) acts as a mock server for api requests
