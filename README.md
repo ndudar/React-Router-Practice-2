@@ -287,6 +287,11 @@ navigate("/logout)
 ```
 action={loginAction}
 ```
+- on your form you can specify the method for your form (native to html forms) with the method prop
+```
+<Form method="post">
+```
+- no need for action prop (it will default to whatever path you specified on the route you put the action on)
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
