@@ -281,6 +281,12 @@ navigate("/logout)
 
 ### Form:
 - the React form component allows you to have much of the same functionality of html forms but without needing to code a handleChange or handleSubmit to manage the state
+- in the component where you put your form, define a function called **action**
+- in the doc with routes (index.jsx for example), import this function, renaming it more specifically for the action it is performing
+- pass it to the proper route with the **action property**
+```
+action={loginAction}
+```
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
