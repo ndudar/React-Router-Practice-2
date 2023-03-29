@@ -304,6 +304,14 @@ action={loginAction}
   - FormData.getAll(name): Returns an array of all the values associated with the field with the specified name.
   - FormData.has(name): Returns a Boolean indicating whether the FormData object contains a field with the specified name.
   - FormData.set(name, value): Sets the value of the field with the specified name to the given value.
+  ```
+  const handleSubmit = (event) => {
+  event.preventDefault();
+  const form = event.target;
+  const formData = new FormData(form);
+  // do something with the formData object
+  }
+  ```
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
