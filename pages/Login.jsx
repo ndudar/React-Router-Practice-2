@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Form } from "react-router-dom";
 import { loginUser } from "../api";
 
 export default function Login() {
@@ -43,7 +43,7 @@ export default function Login() {
       )}
       <h1>Sign in to your account</h1>
       {error?.message && <h3 className="login-error">{error.message}</h3>}
-      <form onSubmit={handleSubmit} className="login-form">
+      <Form onSubmit={handleSubmit} className="login-form">
         <input
           name="email"
           onChange={handleChange}
@@ -61,7 +61,7 @@ export default function Login() {
         <button disabled={status === "submitting"}>
           {status === "submitting" ? "Logging in..." : "Log in"}
         </button>
-      </form>
+      </Form>
     </div>
   );
 }
