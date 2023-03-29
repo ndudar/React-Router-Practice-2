@@ -1,23 +1,18 @@
 import React from "react";
-import { useParams, Link, useLocation } from "react-router-dom";
+import { useParams, Link, useLocation, useLoaderData } from "react-router-dom";
+import { getVans } from "../../api";
+
+export function loader({ params }) {
+  return getVans(params.id)
+}
 
 export default function VanDetail() {
-  //grab params from url
-  const params = useParams();
-
   //object with pathname, search query, hash, state, and key
   //this state is in the browser's own capability to hold state, this is not React state
   const location = useLocation()
 
   //state
-  const [van, setVan] = React.useState(null);
-
-  //grab the van from the mirage "server"
-  React.useEffect(() => {
-    fetch(`/api/vans/${params.id}`)
-      .then((res) => res.json())
-      .then((data) => setVan(data.vans));
-  }, [params.id]);
+  const van = useLoaderData()
 
   //grabbing information from state
   const search = location.state?.search || ""

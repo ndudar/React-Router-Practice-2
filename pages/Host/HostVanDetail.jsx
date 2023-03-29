@@ -1,29 +1,22 @@
 import React from "react";
-import { useParams, Link, Outlet, NavLink } from "react-router-dom";
+import { useParams, Link, Outlet, NavLink, useLoaderData } from "react-router-dom";
+import { getHostVans } from "../../api";
+import { requireAuth } from "../../utils";
+
+export async function loader({ params }) {
+  await requireAuth()
+  return getHostVans(params.id)
+}
 
 export default function HostVanDetail() {
-  //grab params from URL
-  const params = useParams();
-
   //state
-  const [van, setVan] = React.useState(null);
-
-  //grab the van from the mirage server that matches host id
-  React.useEffect(() => {
-    fetch(`/api/host/vans/${params.id}`)
-      .then((res) => res.json())
-      .then((data) => setVan(data.vans));
-  }, []);
+  const van = useLoaderData()
 
   const activeStyles = {
     fontWeight: "bold",
     textDecoration: "underline",
     color: "#161616",
   };
-
-  if (!van) {
-    return <h1>Loading...</h1>;
-  }
 
   return (
     <section>
