@@ -293,6 +293,18 @@ action={loginAction}
 ```
 - no need for action prop (it will default to whatever path you specified on the route you put the action on)
 
+### formData:
+- **formData** is an object that contains data from a form submitted via the <form> element in a React component.
+- React Router provides the formData object as a property of the **history object** that is passed to a component when it is rendered in response to a route change. The formData object is only available for POST, PUT, and PATCH HTTP methods, which are typically used for submitting data to a server.
+- When a user submits a form, the data from the form is added to the formData object as key-value pairs, where the keys are the names of the form fields and the values are the values entered by the user. This data can then be accessed in the component using the formData property of the history object.
+- Here are some commonly used methods on the FormData object in JavaScript:
+  - FormData.append(name, value): Adds a new field to the FormData object with the given name and value.
+  - FormData.delete(name): Removes the field with the specified name from the FormData object.
+  - FormData.get(name): Returns the value of the field with the specified name.
+  - FormData.getAll(name): Returns an array of all the values associated with the field with the specified name.
+  - FormData.has(name): Returns a Boolean indicating whether the FormData object contains a field with the specified name.
+  - FormData.set(name, value): Sets the value of the field with the specified name to the given value.
+
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
 - Mirage JS (dependency here) acts as a mock server for api requests
