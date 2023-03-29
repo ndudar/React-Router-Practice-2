@@ -23,7 +23,7 @@ import HostVanPricing from "./pages/Host/HostVanPricing";
 import HostVanPhotos from "./pages/Host/HostVanPhotos";
 import NotFound from "./pages/NotFound";
 import Error from "./components/Error";
-import Login from "./pages/Login";
+import Login, { loader as loginLoader, action as loginAction } from "./pages/Login";
 import AuthRequired from "./components/AuthRequired";
 
 import "./server";
