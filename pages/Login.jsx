@@ -1,6 +1,15 @@
 import React from "react";
-import { useNavigate, useLocation, Form } from "react-router-dom";
+import { useNavigate, useLoaderData, Form } from "react-router-dom";
 import { loginUser } from "../api";
+
+export function loader({ request }) {
+  return new URL(request.url).searchParams.get("message")
+}
+
+export async function action() {
+  console.log("Action function")
+  return null
+}
 
 export default function Login() {
   const [loginFormData, setLoginFormData] = React.useState({
@@ -9,20 +18,18 @@ export default function Login() {
   });
   const [status, setStatus] = React.useState("idle");
   const [error, setError] = React.useState(null);
-  const location = useLocation();
+  const message = useLoaderData()
   const navigate = useNavigate();
-  const from = location.state?.from || "/host"
 
   function handleSubmit(e) {
     e.preventDefault();
     setStatus("submitting");
     setError(null);
     loginUser(loginFormData)
-      .catch((err) => setError(err))
       .then((data) => {
-        localStorage.setItem("loggedin", true);
-        navigate(from, { replace: true });
+        navigate("/host", { replace: true });
       })
+      .catch(err => setError(err))
       .finally(() => {
         setStatus("idle");
       });
@@ -38,12 +45,10 @@ export default function Login() {
 
   return (
     <div className="login-container">
-      {location.state?.message && (
-        <h3 className="login-error">{location.state.message}</h3>
-      )}
       <h1>Sign in to your account</h1>
-      {error?.message && <h3 className="login-error">{error.message}</h3>}
-      <Form onSubmit={handleSubmit} className="login-form">
+      {message && <h3 className="red">{message}</h3>}
+      {error && <h3 className="red">{error.message}</h3>}
+      <Form method="post" className="login-form">
         <input
           name="email"
           onChange={handleChange}
