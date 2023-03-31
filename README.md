@@ -317,7 +317,11 @@ action={loginAction}
 
   ### useActionData:
   - a hook that grabs information from the action function
-  - 
+
+  ### useNavigation:
+  - hook that gives you an object with information about the status of navigation in the app (loading, submitting, etc)
+  - props: state, location, formMethod, formAction, formEncType, formData
+  the state property will tell you things like "submitting", "idle"
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub

@@ -4,7 +4,8 @@ import {
     useNavigate,
     redirect,
     Form,
-    useActionData
+    useActionData,
+    useNavigation
 } from "react-router-dom"
 import { loginUser } from "../api"
 
@@ -27,6 +28,7 @@ export async function action({ request }) {
 
 export default function Login() {
     const errorMessage = useActionData()
+    const navigation = useNavigation()
     const [status, setStatus] = React.useState("idle")
     const [error, setError] = React.useState(null)
     const message = useLoaderData()
