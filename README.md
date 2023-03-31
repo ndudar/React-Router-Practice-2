@@ -313,6 +313,11 @@ action={loginAction}
   }
   ```
   - because of the functionality of formData, you can use it to handle changes in your forms without needing a handleChange or state to hold the values in the form. Instead, you can pull the values from the form in your action, and directly pass these to the needed functions.
+  [FormData documentation here](https://developer.mozilla.org/en-US/docs/Web/API/FormData)
+
+  ### useActionData:
+  - a hook that grabs information from the action function
+  - 
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
