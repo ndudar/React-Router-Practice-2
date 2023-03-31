@@ -322,6 +322,7 @@ action={loginAction}
   - hook that gives you an object with information about the status of navigation in the app (loading, submitting, etc)
   - props: state, location, formMethod, formAction, formEncType, formData
   the state property will tell you things like "submitting", "idle"
+  [documentation here](https://reactrouter.com/en/main/hooks/use-navigation)
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub

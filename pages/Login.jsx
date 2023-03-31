@@ -1,7 +1,6 @@
 import React from "react"
 import {
     useLoaderData,
-    useNavigate,
     redirect,
     Form,
     useActionData,
@@ -29,21 +28,7 @@ export async function action({ request }) {
 export default function Login() {
     const errorMessage = useActionData()
     const navigation = useNavigation()
-    const [status, setStatus] = React.useState("idle")
-    const [error, setError] = React.useState(null)
     const message = useLoaderData()
-    const navigate = useNavigate()
-
-    function handleSubmit(e) {
-        e.preventDefault()
-        setStatus("submitting")
-        setError(null)
-        loginUser(loginFormData)
-            .then(data => {
-                navigate("/host", { replace: true })
-            })
-            .finally(() => setStatus("idle"))
-    }
 
     return (
         <div className="login-container">
