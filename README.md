@@ -332,6 +332,15 @@ action={loginAction}
 - as a second param to navigate(), if you put { replace: true }, it will take that previous page out of the history stack (say it's a login page for example), so if the user hits the back button they won't go back to the login page, but whatever page they were on before that
   - you can also do this in the Navigate component, just make a prop called **replace** and it means the same thing
 - submitting a form is a navigation event. You can put the **replace** prop on a form, and this will edit the history stack so that if they log in and hit the back button, they won't go to the login page again because it's been replaced and popped off, they'll go the the link prior to that.
+- one way to grab the URL pathname that a user is tyring to get to (not a React feature, just good ole native web platform api):
+```
+export async function loader({ request }) {
+    const url = new URL(request.url)
+    console.log(url.pathname)
+    await requireAuth()
+    return null
+}
+```
 
 
 ##### This Project is from Scrimba
