@@ -63,9 +63,9 @@ export default function Login() {
                     placeholder="Password"
                 />
                 <button
-                    disabled={status === "submitting"}
+                    disabled={navigation.state === "submitting"}
                 >
-                    {status === "submitting"
+                    {navigation.state === "submitting"
                         ? "Logging in..."
                         : "Log in"
                     }
