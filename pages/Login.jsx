@@ -44,7 +44,7 @@ export default function Login() {
             {message && <h3 className="red">{message}</h3>}
             {error && <h3 className="red">{error.message}</h3>}
 
-            <Form method="post" className="login-form">
+            <Form method="post" className="login-form" replace>
                 <input
                     name="email"
                     type="email"
