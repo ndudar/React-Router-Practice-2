@@ -324,6 +324,10 @@ action={loginAction}
   the state property will tell you things like "submitting", "idle"
   [documentation here](https://reactrouter.com/en/main/hooks/use-navigation)
 
+  ### defer:
+  - because loaders will automatically await the data, we have a weird situation where we can be stuck waiting for the loaderData without seeing anything on the user side to indicate as such. This is where **defer** comes into play
+  
+
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
 - Mirage JS (dependency here) acts as a mock server for api requests
