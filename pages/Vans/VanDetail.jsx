@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, useParams, useLocation, useLoaderData } from "react-router-dom"
 import { getVans } from "../../api"
+//if I wanted to use firebase, I would change the func to getVan in the import and in the code below
 
 export function loader({ params }) {
     return getVans(params.id)
