@@ -8,10 +8,6 @@ import {
 } from "react-router-dom";
 import { getVans } from "../../api";
 
-/**
- * Challenge: Implement Suspense
- */
-
 export function loader() {
   return defer({ vans: getVans() });
 }
