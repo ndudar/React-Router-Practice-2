@@ -384,7 +384,42 @@ action={loginAction}
     )
   }
   ```
+- there's a weird bug that can happen here, when you click back to this rendered page it will say there's an issue with Suspense. That's because we need to wrap out Await from react router with the Suspense from good ole React:
+```
+import React from "react"
+import { useLoaderData, defer, Await } from "react-router-dom"
+import { sleep, getWeather } from "./utils"
 
+export async function loader() {
+    const weatherPromise = getWeather()
+    return defer({ weather: weatherPromise })
+}
+
+export default function Weather() {
+    const loaderData = useLoaderData()
+
+    return (
+        <section className="weather-container">
+            <h1>Weather in Salt Lake City</h1>
+            <React.Suspense fallback={<h2>Loading weather...</h2>}>
+                <Await resolve={loaderData.weather}>
+                    {(loadedWeather) => {
+                        const iconUrl =
+                            `http://openweathermap.org/img/wn/${loadedWeather.weather[0].icon}@2x.png`
+                        return (
+                            <>
+                                <h3>{loadedWeather.main.temp}ºF</h3>
+                                <img src={iconUrl} />
+                            </>
+                        )
+                    }}
+                </Await>
+            </React.Suspense>
+        </section>
+    )
+}
+```
+- Suspense will take a fallback prop to know what it should render in the meantime while awaiting that promise (in the example above it will just say loading... until the promise is resolved and the data is available, at which time the data will render)
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
