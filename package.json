@@ -1,6 +1,7 @@
 {
   "name": "project",
   "dependencies": {
+    "firebase": "^9.19.1",
     "miragejs": "^0.1.47",
     "react": "18.2.0",
     "react-dom": "18.2.0",
