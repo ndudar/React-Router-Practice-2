@@ -420,6 +420,8 @@ export default function Weather() {
 }
 ```
 - Suspense will take a fallback prop to know what it should render in the meantime while awaiting that promise (in the example above it will just say loading... until the promise is resolved and the data is available, at which time the data will render)
+[Suspense documentation here](https://react.dev/reference/react/Suspense)
+
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
