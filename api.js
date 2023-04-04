@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, getDocs, doc, getDoc } from "firebase/firestore/lite"
+import { getFirestore, collection, getDocs, doc, getDoc, query, where } from "firebase/firestore/lite"
 
 const firebaseConfig = {
   apiKey: "AIzaSyDpOebl5-feEAYQYUSR8dNZTzBVsRrrr-w",
@@ -31,11 +31,21 @@ const vansCollectionRef = collection(db, "vans")
 
 // export async function getVan(id) {
 //     const docRef = doc(db, "vans", id)
-//     const vanSnapshot = getDoc(docRef)
+//     const vanSnapshot = await getDoc(docRef)
 //     return {
 //         ...vanSnapshot.data(),
 //         id: vanSnapshot.id
 //     }
+// }
+
+// export async function getHostVans() {
+//     const q = query(vansCollectionRef, where("hostId", "==", "123"))
+//     const querySnapshot = await getDocs(q)
+//     const dataArr = querySnapshot.docs.map(doc => ({
+//         ...doc.data(),
+//         id: doc.id
+//     }))
+//     return dataArr
 // }
 
 
