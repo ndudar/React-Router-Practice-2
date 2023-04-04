@@ -3,7 +3,7 @@ import { Link, useSearchParams, useLoaderData, defer } from "react-router-dom"
 import { getVans } from "../../api"
 
 export function loader() {
-    return defer({vans: getVans()})
+    return defer({ vans: getVans() })
 }
 
 export default function Vans() {

@@ -347,6 +347,44 @@ action={loginAction}
   }
   ```
 
+  ### Await:
+  - wrapping JSX in Await allows you to use Promises when rendering loader data
+  - in the example below, we wrap the weather html elements in an Await
+  - we pass the Await the resolve prop for the specific loaderData we need
+  - we also use a function as a render prop, which will take as an argument the returned object from the resolve of the Promise
+  ```
+  import React, { Suspense } from "react"
+  import { useLoaderData, defer, Await } from    "react-router-dom"
+  import { sleep, getWeather } from "./utils"
+
+  export async function loader() {
+    const weatherPromise = getWeather()
+    return defer({ weather: weatherPromise })
+  }
+
+  export default function Weather() {
+    const loaderData = useLoaderData()
+
+    return (
+        <section className="weather-container">
+            <h1>Weather in Salt Lake City</h1>
+            <Await resolve={loaderData.weather}>
+                {(loadedWeather) => {
+                    const iconUrl =
+                        `http://openweathermap.org/img/wn/${loadedWeather.weather[0].icon}@2x.png`
+                    return (
+                        <>
+                            <h3>{loadedWeather.main.temp}ºF</h3>
+                            <img src={iconUrl} />
+                        </>
+                    )
+                }}
+            </Await>
+        </section>
+    )
+  }
+  ```
+
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
