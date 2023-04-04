@@ -8,6 +8,10 @@ import {
 } from "react-router-dom";
 import { getVans } from "../../api";
 
+/**
+ * Challenge: Implement Suspense
+ */
+
 export function loader() {
   return defer({ vans: getVans() });
 }
@@ -102,7 +106,9 @@ export default function Vans() {
   return (
     <div className="van-list-container">
       <h1>Explore our van options</h1>
-      <Await resolve={dataPromise.vans}>{renderVanElements}</Await>
+      <React.Suspense fallback={<h2>Loading vans...</h2>}>
+        <Await resolve={dataPromise.vans}>{renderVanElements}</Await>
+      </React.Suspense>
     </div>
   );
 }
