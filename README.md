@@ -326,7 +326,13 @@ action={loginAction}
 
   ### defer:
   - because loaders will automatically await the data, we have a weird situation where we can be stuck waiting for the loaderData without seeing anything on the user side to indicate as such. This is where **defer** comes into play
-  
+  ```
+  export async function loader() {
+    const weatherPromise = getWeather()
+    return defer({weather: weatherPromise})
+  }
+  ```
+
 
 #### Other Findings:
 - Netlify is a good free and easy option for deplyment from GitHub
